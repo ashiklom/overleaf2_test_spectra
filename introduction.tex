@@ -1,0 +1,107 @@
+\section{Introduction} \label{s:intro}
+    The biosphere as we know it is fundamentally dependent on the interactions 
+    between plants and solar radiation through photosynthesis. Consequently, we 
+    can learn a lot about the condition of plants by studying these 
+    interactions in detail. Over the last several decades, our capability to do 
+    so has expanded dramatically. At regional and global scales, we have used
+% * <alexey.shiklomanov@gmail.com> 2018-04-07T17:05:04.796Z:
+% 
+% > At regional and global scales
+% Here is a comment.
+% 
+% ^ <alexey.shiklomanov@gmail.com> 2018-04-07T17:05:47.246Z.
+    reflectance measurements from multispectral satellites such as AVHRR, Landsat, and MODIS for mapping and monitoring of vegetation productivity,
+    distribution, and abundance at high temporal frequency (e.g.
+    \cite{Loveland2000, Friedl2002, Hansen2010, Houborg2015a}).  At the
+    landscape scale, we have used satellites and airborne sensors with high
+    spatial (e.g.  DigitalGlobe) and/or spectral (e.g.  AVIRIS) resolution --
+    often in combination with laser-based instruments like LIDAR -- to gain
+    insights about processes influencing canopy structure and species
+    composition (\cite{Singh2015, Asner2015, Banskota2015}).  Finally, field
+    spectrometers with even higher spectral resolution and spanning the entire
+    visible, near infrared, and occasionally the short-wave infrared regions of
+    the spectrum have provided considerable insight about leaf physiology and
+    biochemistry (\cite{Serbin2012, Serbin2014, Couture2013, Zhao2014,
+    Sullivan2013}).
+
+    An important caveat of using spectral information to study vegetation is
+    that the thing being measured -- reflectance (and sometimes transmittance)
+    -- is usually not the variable of interest. Rather, we are interested in
+    physiologically or ecologically meaningful variables such as total biomass,
+    photosynthetic efficiency, species composition, or biomass, which must be
+    inferred from the spectral data. Typically, this connection is made
+% * <alexey.shiklomanov@gmail.com> 2017-01-11T20:49:11.044Z:
+% 
+% > Typically, this connection is made
+% Not sure I agree?
+% 
+% ^ <alexey.shiklomanov@gmail.com> 2017-01-11T20:49:29.599Z:
+%
+% I agree though.
+%
+% ^.
+    empirically, either by simple regression with vegetation indices
+    (\cite{Haboudane2002, Huete2002, LeMaire2004, Liu2012a, Fassnacht2015} or
+    through more advanced statistical methods such as partial least squares
+    regression (PLSR) (\cite{Serbin2012, Couture2013, Serbin2013a}) and wavelet
+    transforms (\cite{Blackburn2008, Cheng2010, Banskota2013b}).  Both
+    approaches are problematic for several reasons.  First of all, the
+    empirical nature of the relationships means that they are often specific to
+    sensors, sites, and/or vegetation types, as evidenced by the substantial
+    variability in coefficients and choice of wavelengths across studies
+    (\cite{Leprieur1994, Knyazikhin1998, Myneni2002, Huete2002, Liu2012a,
+    Wessels2012, Croft2014}). Furthermore, these empirical approaches are
+    unable to provide a mechanistic explanation for the relationships and are
+    therefore unable to distinguish true connections between reflectance
+    signatures and variables of interest from spurious correlations
+    (\cite{Knyazikhin2013} but see \cite{Townsend2013}). As a result, such
+    approaches have limited predictive capability, for instance for use to
+    inform ecosystem models (\cite{Quaife2008}). 
+
+    Radiative transfer models (RTMs), which provide a mechanistic link between 
+    plant traits and spectral signatures, are a potentially useful alternative.   
+    A variety of these models exist, varying in complexity from the level of 
+    individual leaves (e.g. PROSPECT -- \cite{Jacquemoud1990, Feret2008}; 
+    LIBERTY -- \cite{Dawson1998, DiVittorio2009}; LEAFMOD -- 
+    \cite{Ganapol1998}) to canopies (e.g. SAIL -- \cite{Verhoef1984,
+    Jacquemoud2009}; ACRM \cite{Kuusk2001}; MRTM -- \cite{Wang2013}), and often
+    existing as components of terrestrial ecosystem models responsible for
+    determining surface energy balance and light availability for
+    photosynthesis (e.g. ED2 -- \cite{Medvigy2006}; Ent DGTEM --
+    \cite{Ni-Meister2010}).  In this study, we focus on the PROSPECT model,
+    which has been extensively used to not only simulate synthetic vegetation
+    for developing and testing new remote sensing techniques (e.g.
+    \cite{LeMaire2004, Feret2011, Hunt2012, Zarco-Tejada2013, Croft2014}), but
+    also for estimating leaf and canopy parameters from spectral observations
+    via model inversion (e.g.  \cite{Jacquemoud1995, Jacquemoud2009, Feret2008,
+    Li2011a, Atzberger2012, Zarco-Tejada2004a}).  Unfortunately, the most
+    commonly used approaches for RTM inversion (e.g. least-squares
+    minimization, look-up tables) fail to quantify the uncertainty or
+    covariance in the resulting parameter estimates. This is problematic
+    because uncertainty estimates are a fundamental requirement for drawing
+    meaningful scientific conclusions from results and for assimilating results
+    from multiple sources (\cite{Cressie2009, Quaife2008}). 
+
+    The application of Bayesian statistics to RTM inversion results allows the
+    quantification of uncertainty and covariance in parameter estimates and
+    aids in the solution of ill-posed problems by combining multiple sources of
+    information in a consistent, statistically sound way. While full Bayesian
+    approaches to parameter retrieval have been reasonably popular in
+    astronomical (e.g.~ \cite{Sliwa2014, Wilkman2014}) and meteorological
+    contexts (e.g., \cite{DeLannoy2014, Liu2014a, Elsaesser2015}), vegetation
+    RTM inversion studies typically sacrifice the ability to obtain robust
+    uncertainty and covariance estimates in favor of more computationally
+    efficient maximum likelihood approximations constrained by prior
+    information (e.g., \cite{Yao2008, Lauvernet2008, Zhang2012, Laurent2014,
+    Mousivand2014}). In this study, we build upon this work by investigating
+    the information content of spectral data in the absence of independent
+    prior information, focusing instead on parameter uncertainty and
+    covariance.  First, we introduce a novel, fully Bayesian approach for
+    radiative transfer model inversion and validate this approach on a database
+    of field spectra.  Second, we simulate data using the full spectral
+    response functions of ten common remote sensing platforms and investigate
+    the maximum idealized accuracy and precision attainable by a RTM parameter
+    retrieval using data from these platforms.  Our hope is that this work will
+    pave the way towards fully utilizing the vast archive of remote sensing and
+    field spectral observations to enhance our understanding of ecosystem
+    processes.

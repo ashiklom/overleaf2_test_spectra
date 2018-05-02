@@ -1,0 +1,45 @@
+%\documentclass[preprint,review,12pt]{elsarticle}
+\documentclass{elsarticle}
+
+\usepackage{graphicx} % Graphics
+\usepackage{amssymb} % Various useful mathematical symbols
+\usepackage{amsmath} % Advanced quations, including text and align
+\usepackage{siunitx} % SI units
+\usepackage{lineno} % Line numbers
+\usepackage{url} % URL typesetting
+\usepackage{tablefootnote} % Footnotes in tables
+
+\journal{Remote Sensing of Environment}
+
+\begin{document}
+
+\begin{frontmatter} % Title, authors and addresses
+
+\title{Investigating the information content of spectral data}
+\author[ANS,MCD,SPS]{Alexey N. Shiklomanov, Michael C. Dietze, Shawn P. Serbin}
+\address[ANS,MCD]{Dept. of Earth and Environment, Boston University}
+\address[SPS]{Brookhaven National Lab}
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\begin{keyword}
+Spectra \sep PROSPECT \sep Leaf
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers %% Begin line numbering
+
+\include{introduction}
+\include{methods}
+\include{results}
+\include{discussion}
+\include{conclusions}
+
+%% References
+\bibliographystyle{plain}
+\bibliography{sensor-manuscript.bib}
+
+\end{document}

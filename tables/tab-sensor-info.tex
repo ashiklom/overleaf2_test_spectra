@@ -1,0 +1,24 @@
+% Table of sensor information
+% Fri Jul 31 20:36:03 2015
+\begin{table}[ht]
+  \centerline{
+\begin{tabular}{cccccc}
+  \hline
+  Sensor   &   Bands\tablefootnote{Excluding values outside \SIrange{400}{2500}{\nano\meter} range and panchromatic bands} &   Spectral range (\si{\nano\meter})   &   Bandwidth (\si{\nano\meter})   &   Spatial resolution (\si{\meter})   &   Revisit time (days) \\
+  \hline
+  AVIRIS NG        &   416   &   \numrange{380}{2510}   &   5                     &   \numrange{0.3}{4.0}   &   On-demand only \\
+AVIRIS Classic     &   216   &   \numrange{400}{2500}   &   \SI{10}               &   20                    &   On-demand only \\
+CHRIS-Proba        &   62    &   \numrange{410}{1050}   &   \numrange{1.5}{12}    &   36                    &   \numrange{7}{8} \\
+Hyperion           &   225   &   \numrange{350}{2500}   &   10                    &   30                    &   16 \\
+  Landsat 5 TM     &   6     &   \numrange{450}{2350}   &   \numrange{60}{270}    &   30                    &   16 \\
+  Landsat 7 ETM+   &   6     &   \numrange{440}{2350}   &   \numrange{60}{280}    &   30                    &   16 \\
+  Landsat 8 OLI    &   8     &   \numrange{435}{2295}   &   \numrange{20}{185}    &   30                    &   16 \\
+  MODIS (Terra)    &   7     &   \numrange{459}{2155}   &   \numrange{20}{50}     &   \numrange{250}{500}   &   \numrange{1}{2} \\
+  VIIRS            &   10    &   \numrange{402}{2275}   &   \numrange{15}{60}     &   750                   &   \numrange{1}{2} \\
+  AVHRR            &   3     &   \numrange{580}{1640}   &   \numrange{100}{275}   &   1090                  &   1 \\
+   \hline
+\end{tabular}
+}
+\caption{Spectral, spatial, and temporal characteristics of sensors considered in this study.} 
+\label{tab:sensor-info}
+\end{table}
